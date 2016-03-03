@@ -10,6 +10,7 @@
 
 
 
+  <meta name="date" content="2016-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -105,7 +106,7 @@
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">25 février 2016</p>
+            <p style="margin-top: 6px; margin-left: -2px;">03 March 2016</p>
           </hgroup>
   </slide>
 
@@ -227,8 +228,8 @@ git commit -m &#39;initial version&#39;</pre>
 <li><p>go to your terminal</p>
 
 <pre >cd yourFolder
-git remote add origin someadress.git
-git push -u origin master</pre></li>
+git remote add origin https://someadress.git
+git push -u origin master --all</pre></li>
 </ol>
 
 <ul class = 'build'>
@@ -366,25 +367,6 @@ print(x^2)</pre>
 <pre >git rebase baseBranch</pre></li>
 </ul>
 
-</article></slide><slide class=''><hgroup><h2>Additional useful commands</h2></hgroup><article  id="additional-useful-commands">
-
-<ul class = 'build'>
-<li><p>tag a commit</p>
-
-<pre >git tag
-git tag -a commitName -m &quot;version XX&quot;</pre></li>
-<li><p>overwrite/add the file of the source branch into the current branch</p>
-
-<pre >git checkout branch sourcebranch filename</pre></li>
-<li><p>remove all not commited changes</p>
-
-<pre >git checkout .</pre>
-
-<p>or</p>
-
-<pre >git reset --hard HEAD</pre></li>
-</ul>
-
 </article></slide><slide class=''><hgroup><h2>Branches and remote repository</h2></hgroup><article  id="branches-and-remote-repository">
 
 <ul class = 'build'>
@@ -413,6 +395,52 @@ git push origin thebranch</pre></li>
 
 <pre >git fetch --prune</pre></li>
 <li><p><code>git pull</code> is a combinaison of <code>git fetch</code> and <code>git merge</code> : if there are merging conflicts when using <code>git pull</code> do it in 2 steps to keep control on the merge!</p></li>
+</ul>
+
+</article></slide><slide class='segue dark nobackground'><hgroup class = 'auto-fadein'><h2>Navigation between versions</h2></hgroup><article  id="navigation-between-versions">
+
+</article></slide><slide class=''><hgroup><h2>Navigation between commits</h2></hgroup><article  id="navigation-between-commits">
+
+<ul class = 'build'>
+<li><p>Go to a specific state (commit)</p>
+
+<pre >git log
+git checkout commitRef</pre></li>
+<li><p>Revert changes made at a commit</p>
+
+<pre >git log
+git revert commitRef</pre></li>
+<li><p>Return to the last commit AND keep tack of this</p>
+
+<pre >git revert HEAD</pre></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Navigation between commits</h2></hgroup><article  id="navigation-between-commits-1">
+
+<ul class = 'build'>
+<li><p>You can go to second last using ^ or other previous using~</p>
+
+<pre >git revert HEAD^
+git revert HEAD~2</pre></li>
+<li><p>Go back to last(s) commit (all modifications will be lost)</p>
+
+<pre >git reset --hard HEAD
+git reset --hard HEAD^</pre></li>
+<li><p>Go back to last commit for one specific file (modifications lost)</p>
+
+<pre >git checkout -- filename</pre></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Additional useful commands</h2></hgroup><article  id="additional-useful-commands">
+
+<ul class = 'build'>
+<li><p>tag a commit</p>
+
+<pre >git tag
+git tag -a commitName -m &quot;version XX&quot;</pre></li>
+<li><p>overwrite/add one file of the source branch into the current branch</p>
+
+<pre >git checkout branch sourcebranch filename</pre></li>
 </ul>
 
 </article></slide><slide class=''><hgroup><h2>More about git commands</h2></hgroup><article  id="more-about-git-commands">
